@@ -1,0 +1,39 @@
+#Basic Initial Router Configurations
+#Eric C. Ausente
+
+#Give a hostname, domain for your device 
+#Also give a password upon entering enable section
+
+configure terminal
+hostname R1
+ip domain name cisco.com
+enable secret cisco pass 
+exit
+
+#Line Terminal Configurations
+
+configure terminal
+line con 0
+password ciscopress
+exec-timeout 0 0
+no ip domain lookup
+
+line vty 0 4
+password ciscopress
+login
+exec-timeout 0 0
+
+
+#FOR EDIT - indicate your IP ADDRESS and ROUTING PROTOCOLS NEEDED 
+
+router#configure terminal
+router(config)#interface fastethernet 0/0
+router(config-if)#ip address 192.168.1.1 255.255.255.0
+router(config-if)#no shutdown
+
+
+router#configure terminal
+router(config)#hostname R1
+R1(config)#ip domain name cisco.com
+R1(config)#enable secret ciscopass
+R1(config)#ip route 192.168.1.0 255.255.255.0 10.10.10.1
