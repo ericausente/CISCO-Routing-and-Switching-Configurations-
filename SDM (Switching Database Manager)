@@ -1,0 +1,25 @@
+#SDM (Switching Database Manager) 
+      # used to allocate system resources in your MultiLayer Switch
+      # Good thing is, it is already created
+
+
+
+
+#Commands
+
+configure terminal
+sdm prefer? 
+#it will show you a list of options
+#options: access, default, dual-ipv4-and-ipv6, routing, vlan
+#for example let us choose vlan
+
+sdm prefer vlan 
+reload
+
+#make sure you have to reload the device for the template to take effect
+
+
+#Show Commands 
+
+show sdm prefer
+
